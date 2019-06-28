@@ -39,17 +39,22 @@ func get_location_id(state string, city string) string {
     return loc_id
 }
 
-func get_artists(loc_id string) {
+func get_artists(loc_id string) []string {
+
+    var a []string
 
     url := "https://edmtrain.com/api/events?locationIds=" + loc_id + "&client=" + key
     body := get_json(url)
 
     value := gjson.Get(string(body), "data.#.artistList.#.name")
     next := value.Array()
+
     for _, n := range next {
         artist := n.Array()
         if len(artist) > 0 {
-            println(artist[0].String())
+            a = append(a, artist[0].String())
         }
     }
+
+    return a
 }
