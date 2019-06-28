@@ -6,7 +6,7 @@ import (
 
 func main() {
 
-    // get results for a city/state - LA, CA
+    // get results for a city/state - San Diego, CA
     state := "California"
     city := "San%20Diego"
 
