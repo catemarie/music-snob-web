@@ -11,7 +11,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li role="separator" class="divider"></li>
-              <li><a href="#">{{ msg }}</a></li>
+              <li><a href="#">{{ city_selected }}</a></li>
             </ul>
           </div>
         </div>
@@ -23,7 +23,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li role="separator" class="divider"></li>
-              <li><a href="#">{{ msg }}</a></li>
+              <li><a href="#">{{ genre_selected }}</a></li>
             </ul>
           </div>
         </div>
@@ -36,7 +36,8 @@
 export default {
   name: 'Options',
   props: {
-    msg: String
+    city_selected: String,
+    genre_selected: String
   }
 }
 </script>
