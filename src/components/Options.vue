@@ -1,12 +1,17 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="options">
+    <p>
+      city: {{ msg }}
+    </p>
+    <p>
+      genre: {{ msg }}
+    </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MusicSnob',
+  name: 'Options',
   props: {
     msg: String
   }
