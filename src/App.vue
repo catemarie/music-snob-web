@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <MusicSnob msg="find only the music you like"/>
+    <MusicSnob msg="only the music you like"/>
     <Options city_selected="San Diego" genre_selected="trance"/>
-    <Calendar msg="[result]"/>
+    <Calendar/>
   </div>
 </template>
 

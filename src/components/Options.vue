@@ -1,10 +1,11 @@
 <template>
   <div class="options">
-
     <div class="container">
       <div class="row">
+
+        <!-- city options -->
         <div class="col-sm">
-          <div class="dropdown">
+          <div class="dropdown" align="right">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               city
               <span class="caret"></span>
@@ -15,8 +16,10 @@
             </ul>
           </div>
         </div>
+
+        <!-- genre options -->
         <div class="col-sm">
-          <div class="dropdown">
+          <div class="dropdown" align="left">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               genre
               <span class="caret"></span>
@@ -27,6 +30,7 @@
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   </div>
