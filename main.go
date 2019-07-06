@@ -47,6 +47,6 @@ func main() {
 
     log.Println("entries: ", entries)
 
-    http.HandleFunc("/artists/", render_entries)
-    http.ListenAndServe(":8080", nil)
+    http.HandleFunc("/results/", render_entries)
+    http.ListenAndServe(":3000", nil)
 }

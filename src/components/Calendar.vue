@@ -10,10 +10,16 @@
 </template>
 
 <script>
+
+import axios from 'axios';
 export default {
   name: 'Calendar',
   data: () => ({
-    items: ['result 1', 'result 2', 'result 3']
-  })
-}
+    items: [],
+    results: []
+  }),
+  mounted() {
+    axios.get('http://localhost:3000/results/').then(response => (this.items = response.data.Events))
+  }
+};
 </script>
