@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <MusicSnob msg="only the music you like"/>
-    <Options city_selected="San Diego" genre_selected="trance"/>
+    <Options/>
     <Calendar/>
   </div>
 </template>

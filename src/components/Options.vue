@@ -11,8 +11,7 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdown_city" id="city_menu">
-              <li role="separator" class="divider"></li>
-              <li><a href="#">{{ city_selected }}</a></li>
+              <li><a href="#">San Diego</a></li>
             </ul>
           </div>
         </div>
@@ -25,8 +24,7 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdown_genre" id="genre_menu">
-              <li role="separator" class="divider"></li>
-              <li><a href="#">{{ genre_selected }}</a></li>
+              <li><a href="#">trance</a></li>
             </ul>
           </div>
         </div>
@@ -39,9 +37,11 @@
 <script>
 export default {
   name: 'Options',
-  props: {
-    city_selected: String,
-    genre_selected: String
+  data() {
+    return {
+      city_selected: "",
+      genre_selected: ""
+    }
   },
 
   mounted() {
@@ -49,12 +49,14 @@ export default {
       e.preventDefault();
       this.city_selected = $(this).text();
       $("#dropdown_city").text(this.city_selected);
+      console.log(this.city_selected);
     });
-    
+
     $("#genre_menu a").click(function(e){
       e.preventDefault();
       this.genre_selected = $(this).text();
       $("#dropdown_genre").text(this.genre_selected);
+      console.log(this.genre_selected);
     });
   },
 }
