@@ -31,6 +31,7 @@
 
       </div>
     </div>
+    <button type="button" class="btn btn-outline-secondary">go</button>
   </div>
 </template>
 

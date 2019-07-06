@@ -16,7 +16,6 @@ export default {
   name: 'Calendar',
   data: () => ({
     items: [],
-    results: []
   }),
   mounted() {
     axios.get('http://localhost:3000/results/').then(response => (this.items = response.data.Events))
