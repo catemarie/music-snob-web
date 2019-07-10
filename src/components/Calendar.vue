@@ -1,7 +1,7 @@
 <template>
   <div class="calendar">
     <p>
-      <h3>calendar</h3>
+      <h3>SoCal trance calendar</h3>
       <ul class="list-group">
         <li v-for="item in items" class="list-element">{{ item }}</li>
       </ul>
