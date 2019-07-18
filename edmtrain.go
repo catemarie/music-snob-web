@@ -6,7 +6,13 @@ import (
     "log"
     "io/ioutil"
     "github.com/tidwall/gjson"
+    "strconv"
 )
+
+type Event struct {
+    date string
+    artists string
+}
 
 var key = os.ExpandEnv("$EDMTRAIN_KEY")
 
@@ -39,20 +45,28 @@ func get_location_id(state string, city string) string {
     return loc_id
 }
 
-func get_artists(loc_id string) []string {
+func get_artists(loc_id string) []Event {
 
-    var a []string
+    var a []Event
 
     url := "https://edmtrain.com/api/events?locationIds=" + loc_id + "&client=" + key
     body := get_json(url)
 
-    value := gjson.Get(string(body), "data.#.artistList.#.name")
-    next := value.Array()
+    json_txt := gjson.Get(string(body), "data")
+    test := json_txt.Array()
+    num := len(test)
 
-    for _, n := range next {
-        artist := n.Array()
-        if len(artist) > 0 {
-            a = append(a, artist[0].String())
+    for ii := 0; ii < num; ii++ {
+
+        date := gjson.Get(string(body), "data." + strconv.Itoa(ii) + ".date")
+        artistList := gjson.Get(string(body), "data." + strconv.Itoa(ii) + ".artistList.#.name")
+
+        for _, n := range artistList.Array() {
+            artist := n.Array()
+            if len(artist) > 0 {
+                entry := Event{date.String(), artist[0].String()}
+                a = append(a, entry)
+            }
         }
     }
 
