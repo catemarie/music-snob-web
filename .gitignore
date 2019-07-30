@@ -12,6 +12,7 @@
 *.out
 
 music-snob
+*.db
 
 .DS_Store
 node_modules
