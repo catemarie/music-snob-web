@@ -111,16 +111,3 @@ func read_database(artist string) []string {
 
     return genres
 }
-
-func main() {
-
-    init_database()
-
-    genres := read_database("andrew rayel")
-    for _, genre := range genres {
-        log.Printf(genre)
-    }
-    if len(genres) < 1{
-        write_database("andrew rayel", "trance")
-    }
-}

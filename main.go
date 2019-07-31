@@ -30,19 +30,34 @@ func main() {
 
     // get results for a city/state - San Diego, CA
     state := "California"
-    cities := [3]string{ "San Diego", "Los Angeles", "Costa Mesa" }
+    cities := [1]string{ "San Diego" }
     genre := "trance"
+
+    init_database()
 
     for _, city := range cities {
         city_formatted := strings.Replace(city, " ", "%20", -1)
-        log.Println(city)
+
         loc_id := get_location_id(state, city_formatted)
-        artists := get_artists(loc_id)
-        for _, artist  := range artists {
-        	genres :=  get_artist_genres(artist.artists)   
+        events := get_artists(loc_id)
+
+        for _, event  := range events {
+
+            var genres []string
+            cached := read_database(event.artists)
+
+            if len(cached) < 1 {
+                genres =  get_artist_genres(event.artists)
+                for _, new_genre := range genres {
+                    write_database(event.artists, new_genre)
+                }
+            } else {
+                genres = cached
+            }
+
     	    for _, g := range genres {
                 if (g == genre || strings.Contains(g, genre)) {
-                    line := artist.date + "    " + artist.artists
+                    line := event.date + "    " + event.artists
                     entries = append(entries, line)
                     break
                 }
